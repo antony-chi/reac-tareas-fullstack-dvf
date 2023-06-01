@@ -2,7 +2,7 @@ export const getTareas = (req, res) =>{
     res.status(404).json("obtener las tareas")
 };
 
-export const postTareaNueva = (req, res) => {
+export const createTareaNueva = (req, res) => {
     res.status(404).json("tarea creada");
 };
 

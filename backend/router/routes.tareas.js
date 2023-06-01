@@ -4,7 +4,7 @@ import * as tareasCtl from "../controllers/tarea.controller.js"
 
 router.get("/", tareasCtl.getTareas)
 
-router.post("/crearTarea", tareasCtl.postTareaNueva);
+router.post("/", tareasCtl.createTareaNueva);
 
 router.put("/:id", tareasCtl.UpdateTareaEditar);
 
