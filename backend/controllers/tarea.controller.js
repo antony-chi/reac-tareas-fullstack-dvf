@@ -3,7 +3,14 @@ export const getTareas = (req, res) =>{
 };
 
 export const createTareaNueva = (req, res) => {
-    res.status(404).json("tarea creada");
+    const text = req.body.texto
+    console.log(text)
+    if(!text){
+        return res.status(400).json("please insert text")
+    }else{
+        return res.json("se creo la tarea")
+    }
+
 };
 
 export const UpdateTareaEditar = (req, res) => {
