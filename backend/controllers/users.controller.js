@@ -53,7 +53,8 @@ export const loginUser = asynchandler(async (req, res) => {
             id: userFound._id,
             name: userFound.name,
             email: userFound.email,
-            menssage: "successfull"
+            menssage: "successfull",
+            token: generateToken(userFound._id)
         })
     }else{
         res.status(400)
@@ -62,6 +63,12 @@ export const loginUser = asynchandler(async (req, res) => {
     }
 
 });
+
+const generateToken = (id) =>{
+    return jwt.sign({id}, process.env.JWT_SECRET,{
+        expiresIn: 1080//segundos = 30 minutos
+    })
+}
 
 export const misDatos = asynchandler(async (req, res) => {
   res.json("mis datos");
