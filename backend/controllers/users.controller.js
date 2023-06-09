@@ -44,7 +44,23 @@ export const createUser = asynchandler(async (req, res) => {
 });
 
 export const loginUser = asynchandler(async (req, res) => {
-  res.json("login");
+    const {email, password} = req.body
+
+    const userFound = await Users.findOne({email: email})
+    //console.log(userFound)
+    if(userFound && (await bcrypt.compare(password, userFound.password))){
+        res.status(200).json({
+            id: userFound._id,
+            name: userFound.name,
+            email: userFound.email,
+            menssage: "successfull"
+        })
+    }else{
+        res.status(400)
+        throw new Error("incorrect email or password")
+
+    }
+
 });
 
 export const misDatos = asynchandler(async (req, res) => {
