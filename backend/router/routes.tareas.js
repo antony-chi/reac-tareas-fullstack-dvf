@@ -1,13 +1,14 @@
 import { Router} from "express";
 const router = Router();
 import * as tareasCtl from "../controllers/tarea.controller.js"
+import { protect } from "../middleware/authMiddleware.js";
 
-router.get("/", tareasCtl.getTareas)
+router.get("/", protect, tareasCtl.getTareas)
 
-router.post("/", tareasCtl.createTareaNueva);
+router.post("/", protect, tareasCtl.createTareaNueva);
 
-router.put("/:id", tareasCtl.UpdateTareaEditar);
+router.put("/:id", protect, tareasCtl.UpdateTareaEditar);
 
-router.delete("/:id", tareasCtl.deleteTarea);
+router.delete("/:id", protect,  tareasCtl.deleteTarea);
 
 export default router;

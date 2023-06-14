@@ -71,5 +71,5 @@ const generateToken = (id) =>{
 }
 
 export const misDatos = asynchandler(async (req, res) => {
-  res.json("mis datos");
+  res.json(req.user);
 });
