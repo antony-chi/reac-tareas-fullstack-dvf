@@ -1,11 +1,13 @@
 import express from "express";
 const app = express();
 import errorHandler from "./middleware/errorMiddleware.js";
+import cors from "cors"
 //---import router ---
 import routerTareas from "./router/routes.tareas.js";
 import routerUser from "./router/routes.user.js";
 
 //---global setting --
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
