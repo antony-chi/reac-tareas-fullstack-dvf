@@ -15,7 +15,7 @@ const tareaShema = Schema(
     description: String,
   },
   {
-    timetamps: true,
+    timestamps: true
   }
 );
 
