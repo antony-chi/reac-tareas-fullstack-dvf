@@ -66,5 +66,5 @@ export const deleteTarea = asyncHandler(async (req, res) => {
 
   await Tareas.findByIdAndDelete(id);
 
-  res.status(200).json(id);
+  res.status(200).json({"id": id});
 });
